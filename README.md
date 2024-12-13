@@ -1,4 +1,3 @@
-# MediaDownloader
 
 # Media Downloader Bot
 
