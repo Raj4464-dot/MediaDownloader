@@ -1,0 +1,10 @@
+pymongo
+requests
+python-dotenv
+aiohttp
+pyrogram
+yt-dlp
+opencv-python
+pillow
+spotipy
+python-telegram-bot
