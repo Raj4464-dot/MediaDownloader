@@ -11,6 +11,9 @@ RUN apt-get update && \
 # Set the working directory
 WORKDIR /app
 
+# Create a directory named 'temp'
+RUN mkdir -p /app/temp
+
 # Copy and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
