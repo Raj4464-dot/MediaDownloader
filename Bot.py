@@ -666,7 +666,7 @@ class YouTubeDownloader:
             return None
         
         ydl_opts = {
-            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+            'format': 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]',
             'outtmpl': os.path.join(str(self.temp_dir), '%(title)s.%(ext)s'),
             'quiet': True,
             'cookiefile': Config.YT_COOKIES_PATH,
