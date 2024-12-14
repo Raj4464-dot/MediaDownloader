@@ -9,3 +9,4 @@ pillow
 spotipy
 python-telegram-bot
 ffmpeg
+TgCrypto
