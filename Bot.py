@@ -29,7 +29,6 @@ from pyrogram.types import InputMediaPhoto, InputMediaVideo
 from pyrogram.errors import FloodWait, MediaEmpty
 from pyrogram.types import Message, ChatPermissions, CallbackQuery
 from pyrogram.errors import UserNotParticipant
-from dotenv import load_dotenv
 
 # Configure logging
 logging.basicConfig(
@@ -38,16 +37,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-load_dotenv("Smokie.env")
 
 # Configuration
 class Config:
     # Pyrogram app details
-    API_ID = os.getenv("TELEGRAM_API_ID")  # Load from environment variables
-    API_HASH = os.getenv("TELEGRAM_API_HASH")
-    BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-    ADMIN_USER_IDS = [int(user_id) for user_id in os.getenv("ADMIN_USER_IDS", "").split(",") if user_id]
-    RAPID_API_KEY = os.getenv("RAPID_API_KEY")
+    API_ID = "27233487"  # Replace with your Telegram API ID
+    API_HASH = "ceeed1a68ce9bed3910c8e1f83c499e4"  # Replace with your Telegram API Hash
+    BOT_TOKEN = "7993147856:AAG7JcZjpduYEetw-h6wBUWYnO_EW4n_tt4"  # Replace with your Bot Token
+    ADMIN_USER_IDS = [1949883614] 
+    RAPID_API_KEY = "217c365061msh1789efd21bd655ap17f94bjsn585409af1cfd"
     RAPID_API_URL = "https://instagram-scraper-api-stories-reels-va-post.p.rapidapi.com/"
     RAPID_API_HEADERS = {
         "x-rapidapi-key": RAPID_API_KEY,
@@ -55,7 +53,7 @@ class Config:
     }
 
     TEMP_DIR = Path("temp")
-    YT_COOKIES_PATH = "cookies.txt"
+    YT_COOKIES_PATH = "cookies.txt"  # Add this for YouTube cookies
     HEADERS = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -1146,7 +1144,7 @@ class PinterestDownloader:
 
 class PinterestFacebookBot:
     def __init__(self):
-        self.CHANNEL_USERNAME = os.getenv("CHANNEL_USERNAME")
+        self.CHANNEL_USERNAME = "SmokieOfficial"
         # Initialize Pyrogram Client
         self.app = Client(
             "media_downloader_bot",
@@ -1155,7 +1153,9 @@ class PinterestFacebookBot:
             bot_token=Config.BOT_TOKEN,
             parse_mode=enums.ParseMode.MARKDOWN
         )
-        self.mongo_connection = MongoDBConnection(os.getenv("MONGO_URL"))
+        self.mongo_connection = MongoDBConnection(
+            "mongodb+srv://SmokieDownloader:SmokieOfficial@cluster0.pgqko.mongodb.net/Downloader?retryWrites=true&w=majority&appName=Cluster0"
+        )
         
         # Initialize downloaders
         self.downloader = PinterestDownloader()
